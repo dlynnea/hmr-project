@@ -1,0 +1,66 @@
+$inBackgroundColor: rgb(31, 66, 31);
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  margin: 15px;
+}
+
+button {
+  margin: 5px;
+}
+
+ul.unstyled {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar ul {
+  height: 70px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: linear-gradient(to bottom right, #b1777a, #684a4b);
+}
+
+nav li {
+  float: right;
+}
+
+li.logo {
+  float: left;
+  color: white;
+  padding: 16px 16px;
+  font-size: 2rem;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  margin: 24px 34px 24px 0px;
+  // padding: 24px 34px 24px 0px;
+  text-decoration: none;
+  font-size: 1.4rem;
+}
+
+nav li a:hover {
+  font-size: 1.5rem;
+  transition: font-size 0.8s ease-in-out;
+  color: rgb(37, 37, 37);
+  transition: color 0.6s ease-in-out;
+
+  // background-color: $inBackgroundColor;
+}
+
+nav button {
+  margin-top: 13px;
+}

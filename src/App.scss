@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+$main-font: 'Raleway', sans-serif;
+$border: #888;
+$dusty-rose: #c28285;
+
+
+* {
+  font-family: $main-font;
+}
+
+.nav-bar li {
+  margin-left: 20px;
+}
+
+body {
+  background-color: rgba(192, 176, 176, 0.6);
+  background: url('plant3.jpg') no-repeat;
+  background-size: cover;
+}
+
+.recipe-search-box {
+  width: 200px;
+  height: 30px;
+  margin-left: 20px;
+}
+
+h1,
+h2,
+h3 {
+  color: #265232;
+}
+
+div.recipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1%;
+
+  .recipe {
+    padding: 1.5em;
+    margin: 0.8em;
+  }
+
+}
+
+.recipe {
+  width: 300px;
+  height: 400px;
+  overflow: auto;
+  float: left;
+  margin-top: 1%;
+  background-color: rgba(160, 126, 126, 0.4);
+  border-radius: 4px;
+  // border: 1px solid #1d3323;
+  // box-shadow: 2px 1px 3px rgba(226, 211, 200, 0.8);
+
+  &:hover {
+    box-shadow: 3px 3px 3px rgba(43, 33, 33, 0.9);    
+    transition: box-shadow 0.3s ease-in-out;
+  }
+}
+
+img {
+  width: 250px;
+  height: 250px;
+}
+
