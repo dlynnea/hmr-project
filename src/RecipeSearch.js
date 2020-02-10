@@ -3,6 +3,7 @@ import React from 'react'
 const RecipeSearch = (props) => {
 
     return (
+        <span>
         <form>
             <input
             className="recipe-search-box"
@@ -12,6 +13,7 @@ const RecipeSearch = (props) => {
             onChange={props.handleChange}
             />
         </form>
+        </span>
     );
 }
  

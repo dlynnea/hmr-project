@@ -7,6 +7,7 @@ $dusty-rose: #c28285;
 
 * {
   font-family: $main-font;
+  box-sizing: border-box;
 }
 
 .nav-bar li {
@@ -15,7 +16,7 @@ $dusty-rose: #c28285;
 
 body {
   background-color: rgba(192, 176, 176, 0.6);
-  background: url('plant3.jpg') no-repeat;
+  background: url('plant6.jpg') no-repeat;
   background-size: cover;
 }
 
@@ -28,7 +29,7 @@ body {
 h1,
 h2,
 h3 {
-  color: #265232;
+  color: rgb(7, 7, 7);
 }
 
 div.recipe-container {
@@ -50,13 +51,14 @@ div.recipe-container {
   overflow: auto;
   float: left;
   margin-top: 1%;
-  background-color: rgba(160, 126, 126, 0.4);
+  background-color: rgba(160, 126, 126, 0.5);
   border-radius: 4px;
   // border: 1px solid #1d3323;
   // box-shadow: 2px 1px 3px rgba(226, 211, 200, 0.8);
 
   &:hover {
-    box-shadow: 3px 3px 3px rgba(43, 33, 33, 0.9);    
+    background-color: rgba(160, 126, 126, 0.7);
+    box-shadow: 3px 3px 3px rgba(82, 64, 64, 0.9);    
     transition: box-shadow 0.3s ease-in-out;
   }
 }
@@ -65,4 +67,27 @@ img {
   width: 250px;
   height: 250px;
 }
+
+.botanica-landing {
+
+}
+
+.login-link {
+  text-decoration: none;
+  color: #999;
+}
+
+.register-link {
+  text-decoration: none;
+  color: #999;
+}
+
+.login-register-form input {
+  display: block;
+  width: 20%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+
 
