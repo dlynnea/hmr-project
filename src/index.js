@@ -13,11 +13,11 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
 <Router>
     <Route component={App} />
-    <Route path='/' exact render={Home} />
-    <Route path='/profile' component={Profile}/>
-    <Route path='/login' component={Login}/>
-    <Route path='/search' component={RecipeSearch}/>
-    <Route path='/register' component={Register}/>
+    <Route exact path='/' component={Home} />
+    <Route exact path='/profile' component={Profile}/>
+    <Route exact path='/login' component={Login}/>
+    <Route exact path='/search' component={RecipeSearch}/>
+    <Route exact path='/register' component={Register}/>
 </Router>,
 document.getElementById('root'));
 

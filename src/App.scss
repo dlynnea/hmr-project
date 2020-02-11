@@ -69,7 +69,14 @@ img {
 }
 
 .botanica-landing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
+  & h3, h1 {
+    text-align: center;
+  }
 }
 
 .login-link {
@@ -82,12 +89,24 @@ img {
   color: #999;
 }
 
-.login-register-form input {
-  display: block;
+form.login-register-form input {
+  // display: flex;
   width: 20%;
   padding: 0.5rem;
   margin-bottom: 1rem;
+  // align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
 }
 
+
+form.login-register-form {
+  // border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  // max-width: 500px;
+}
 
 

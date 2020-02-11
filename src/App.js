@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
-// import Home from './Home'
-// import Profile from './Profile'
-// import Login from './Login'
-// import Register from './Register'
 import Nav from './Nav'
-// import RecipeSearch from './RecipeSearch'
 import './App.scss';
 
 class App extends Component {

@@ -15,8 +15,9 @@ class Login extends Component {
 
   login(event) {
       event.preventDefault()
-      const formData = new FormData
+      const formData = new FormData(event.target)
       fetch("http://localhost:3000/login", {
+          method: "POST",
           body: JSON.stringify({
               username: formData.get("username"),
               password: formData.get("password")
