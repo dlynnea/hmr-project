@@ -1,11 +1,11 @@
 import React from 'react'
 import RecipeCard from './RecipeCard'
 
-export default function RecipeCollection({recipes}) {
+export default function RecipeCollection({recipes, recipeAction}) {
 
 const renderRecipes = recipes.map(recipe => {
     return(
-        <RecipeCard recipe={recipe} />
+        <RecipeCard recipe={recipe} recipeAction={recipeAction} />
     )
 })
 

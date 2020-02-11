@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import RecipeCollection from './components/RecipeCollection'
 import RecipeSearch from './RecipeSearch'
+import RecipeSpec from './components/RecipeSpec'
 
 class Main extends Component {
 
     state = {
         recipes: [],
         searchTerm: "",
+        singleRecipe: null,
     }
 
     componentDidMount() {
@@ -26,6 +28,18 @@ class Main extends Component {
             return recipe.title.toLowerCase().includes(this.state.searchTerm.toLowerCase())
         })
     }
+
+    showSpec = (recipe) => {
+        this.setState({
+            singleRecipe: recipe
+        })
+    }
+
+    renderRecipeCollection = () => {
+        this.setState({
+            singleRecipe: null
+        })
+    }
     
     render() { 
         return (
@@ -34,8 +48,16 @@ class Main extends Component {
                 searchTerm={this.state.searchTerm}
                 handleChange={this.handleChange}
                  />
-                <RecipeCollection 
-                recipes={this.filteredRecipes()} />
+                 {this.state.singleRecipe 
+                 ? <RecipeSpec 
+                 recipe={this.state.singleRecipe}
+                 renderRecipeCollection={this.renderRecipeCollection}
+                 />
+                : <RecipeCollection 
+                recipes={this.filteredRecipes()} 
+                recipeAction={this.showSpec}
+                />
+                }
             </div>
           );
     }

@@ -109,4 +109,40 @@ form.login-register-form {
   // max-width: 500px;
 }
 
+.recipe-spec {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
+  // width: 600px;
+  // height: 800px;
+  overflow: auto;
+  // float: left;
+  margin-top: 1%;
+  // background-color: rgba(160, 126, 126, 0.5);
+  // border-radius: 4px;
+}
 
+div.spec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  // width: 500px;
+  // height: 800px;
+  padding: 8px 48px;
+  overflow: auto;
+  float: left;
+  margin-top: 1%;
+  background-color: rgba(160, 126, 126, 0.5);
+  border-radius: 4px;
+}
+
+.image-spec {
+  width: 450px;
+  height: 450px;
+}
+
+div.spec p {
+  width: 500px;
+}
