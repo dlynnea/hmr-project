@@ -4,11 +4,12 @@ const RecipeSearch = (props) => {
 
     return (
         <span>
-        <form>
+        <form className="search-bar">
+        <i class="fa fa-search"></i>
             <input
             className="recipe-search-box"
             type="text"
-            placeholder="Find a Recipe"
+            placeholder='Find a Recipe'
             value={props.searchTerm}
             onChange={props.handleChange}
             />
