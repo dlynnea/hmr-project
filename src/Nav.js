@@ -1,8 +1,19 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
+import RecipeSearch from './RecipeSearch'
 
 
 class Nav extends Component {
+
+    state = {
+        isSearchBarShowing: false,
+    }
+
+    toggleSearchBar = () => {
+        this.setState({
+            isSearchBarShowing: !this.state.isSearchBarShowing
+        })
+    }
 
     render() { 
         return ( 
@@ -15,7 +26,11 @@ class Nav extends Component {
                     <Link to='/profile'><i class="fa fa-user-circle"></i></Link>
                 </li>
                 <li>
-                    <Link to='/search'><i class="fa fa-search"></i></Link>
+                    {
+                        this.state.isSearchBarShowing
+                        ? <i onClick={this.toggleSearchBar} class="fa fa-search"></i>
+                        : <Link to='/search' component={RecipeSearch}></Link>
+                    }
                 </li>
                 <li className="logo">
                     botánica

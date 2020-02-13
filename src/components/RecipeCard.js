@@ -12,8 +12,8 @@ const RecipeCard = (props) => {
         >
             <h2 className="title">{recipe.title}</h2>
             <span>
-                <i className="fa fa-pencil"></i>
-                <i className="fa fa-times-circle"></i>
+                {/* <i className="fa fa-pencil"></i>
+                <i className="fa fa-times-circle"></i> */}
             </span>
             <img src={recipe.image} />
         </div>
