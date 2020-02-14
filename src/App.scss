@@ -22,6 +22,7 @@ body {
   background-color: rgba(192, 176, 176, 0.6);
   background: url('plant6.jpg') no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .recipe-search-box {
@@ -101,7 +102,7 @@ img {
 
 form.login-form input {
   // display: flex;
-  width: 20%;
+  width: 30%;
   padding: 0.5rem;
   margin-bottom: 1rem;
   // align-items: center;
@@ -111,7 +112,7 @@ form.login-form input {
 
 form.register-form input {
   // display: flex;
-  width: 20%;
+  width: 30%;
   padding: 0.5rem;
   margin-bottom: 1rem;
   // align-items: center;
@@ -121,7 +122,7 @@ form.register-form input {
 
 .new-recipe-form input {
     // display: flex;
-    width: 20%;
+    width: 40%;
     padding: 0.5rem;
     margin-bottom: 1rem;
     // align-items: center;
@@ -136,7 +137,7 @@ form.login-form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  // max-width: 500px;
+  width: 800px;
 }
 
 form.register-form {
@@ -145,7 +146,7 @@ form.register-form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  // max-width: 500px;
+  width: 800px;
 }
 
 .new-recipe-form {
@@ -154,7 +155,7 @@ form.register-form {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    // max-width: 500px;
+    width: 800px;
 }
 
 .recipe-spec {

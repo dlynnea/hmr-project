@@ -9,6 +9,7 @@ import Register from './Register';
 import Nav from './Nav'
 import './App.scss';
 import RecipeForm from './components/RecipeForm';
+import Logout from './Logout'
 
 class App extends Component {
 
@@ -19,22 +20,22 @@ class App extends Component {
       loggedIn: false
   }
 
-  componentDidMount() {
-      fetch('http://localhost:3000/recipes')
-      .then(response => response.json())
-      .then(recipes => this.setState({
-        recipes: recipes
-      }))
-    }
+ getRecipes = () => {
+   const token = localStorage.getItem('token')
+   console.log(token)
+    fetch('http://localhost:3000/recipes', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(response => response.json())
+    .then(recipes => this.setState({
+      recipes: recipes
+    }))
+  }
 
-    componentDidMount() {
-      const {token} = localStorage
-      fetch('http://localhost:3000/users', {
-        method: "GET",
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
+  componentDidMount() {
+      fetch('http://localhost:3000/users')
       .then(response => response.json())
       .then(user => {
         return user.name ? this.setState({recipes: user.recipes}) : null
@@ -77,15 +78,12 @@ class App extends Component {
       },
         body: JSON.stringify(user)
     }).then(response => response.json())
-    .then(({token, user, recipes}) => {
-        localStorage.setItem("token", token, "recipes", recipes)
-        this.setState({
-          recipes
-        })
+      .then((result) => {
+        localStorage.setItem('token', result.token)
         history.push('/')
-    })
+        this.getRecipes()
+      })
 }
-
 
 signup = (user, history) => {
         
@@ -96,12 +94,9 @@ signup = (user, history) => {
       },
       body: JSON.stringify(user)
   }).then(response => response.json())
-  .then(({token, user, recipes}) => {
-      localStorage.setItem("token", token, "recipes", recipes)
-      this.setState({
-        recipes
-      })
+  .then((newUser) => {
       history.push('/')
+      this.getRecipes()
   })
 }
 
@@ -121,19 +116,17 @@ deleteRecipe = (id) => {
   render() { 
     return (
       <Router>
-        <Switch>      
-            <header>
-              <Nav />
-            </header>
-            <body>
-              <div className="botanica-landing">
+          <Nav />
+            <Switch>      
+              <main className="botanica-landing">
                 <h1>Welcome to botánica</h1>
                 <h3><Link className="login-link" to='/login'>Login</Link> | <Link className="register-link" to='/register'>Sign Up</Link></h3>
                 <h3><Link className="login-link" to='/all'>View All Recipes</Link> | <Link className="register-link" to='/profile'>View My Recipes</Link></h3>
-              </div>
+                <Logout />
+              {/* </div> */}
                 <Route exact path='/login' render={(props) => <Login {...props} login={this.login} /> } />
-                <Route exact path='/register' render={(props) => <Register {...props} login={this.signup} /> } />
-              <div>
+                <Route exact path='/register' render={(props) => <Register {...props} signup={this.signup} /> } />
+              {/* <div> */}
               <Route exact path='/' render={(props) => (
                 <>
                 {/* <RecipeSearch 
@@ -157,9 +150,8 @@ deleteRecipe = (id) => {
                 {/* <Route exact path='/profile' component={Profile}/> */}
                 {/* <Route exact path='/search' component={RecipeSearch}/> */}
                 {/* <Route exact path='/register' component={Register}/> */}
-            </div>
-          </body>
-              </Switch>
+            </main>
+          </Switch>
       </Router>
     );
   }

@@ -21,7 +21,7 @@ class Register extends Component {
     handleSubmit = event => {
         event.preventDefault()
         const userObject = {user: this.state}
-        this.props.signup(userObject)
+        this.props.signup(userObject, this.props.history)
     }
 
   render() {

@@ -4,7 +4,7 @@ export default function Logout() {
 
     const userLogout = () => {
         localStorage.clear()
-        clearUser()
+        // clearUser()
     }
 
     return(
