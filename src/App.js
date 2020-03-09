@@ -10,6 +10,7 @@ import Nav from './Nav'
 import './App.scss';
 import RecipeForm from './components/RecipeForm';
 import Logout from './Logout'
+import PrivateRoute from './components/PrivateRoute'
 
 class App extends Component {
 
@@ -17,12 +18,18 @@ class App extends Component {
       recipes: [],
       searchTerm: "",
       singleRecipe: null,
-      loggedIn: false
+      loggedIn: false,
+      likes: 0,
   }
+
+addLikes = () => {
+  this.setState({
+    likes: this.state.likes + 1
+  })
+}
 
  getRecipes = () => {
    const token = localStorage.getItem('token')
-   console.log(token)
     fetch('http://localhost:3000/recipes', {
       headers: {
         'Authorization': `Bearer ${token}`
@@ -85,8 +92,7 @@ class App extends Component {
       })
 }
 
-signup = (user, history) => {
-        
+signup = (user, history) => {     
   fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
@@ -100,11 +106,11 @@ signup = (user, history) => {
   })
 }
 
-addRecipe = (newRecipe) => {
-  this.setState({
-    recipes: [...this.state.recipes, newRecipe]
-  })
-}
+// addRecipe = (newRecipe) => {
+//   this.setState({
+//     recipes: [...this.state.recipes, newRecipe]
+//   })
+// }
 
 deleteRecipe = (id) => {
   const recipes = this.state.recipes.map(recipe => {
@@ -117,25 +123,33 @@ deleteRecipe = (id) => {
     return (
       <Router>
           <Nav />
-            <Switch>      
+            {/* <Switch>       */}
               <main className="botanica-landing">
-                <h1>Welcome to botánica</h1>
-                <h3><Link className="login-link" to='/login'>Login</Link> | <Link className="register-link" to='/register'>Sign Up</Link></h3>
-                <h3><Link className="login-link" to='/all'>View All Recipes</Link> | <Link className="register-link" to='/profile'>View My Recipes</Link></h3>
-                <Logout />
-              {/* </div> */}
-                <Route exact path='/login' render={(props) => <Login {...props} login={this.login} /> } />
-                <Route exact path='/register' render={(props) => <Register {...props} signup={this.signup} /> } />
-              {/* <div> */}
-              <Route exact path='/' render={(props) => (
-                <>
-                {/* <RecipeSearch 
+              {/* <RecipeSearch 
                 searchTerm={this.state.searchTerm}
                 handleChange={this.handleChange}
                 /> */}
-                <RecipeForm recipeAction={this.addRecipe} />
+                <h1>botánica, an herbal recipe encyclopedia</h1>
+                <h3><Link className="login-link" to='/login'>Login</Link> | <Link className="register-link" to='/register'>Sign Up</Link> </h3>
+                {/* <h3><Link className="login-link" to='/all'>View All Recipes</Link> | <Link className="register-link" to='/profile'>View My Recipes</Link></h3> */}
+                <Logout />
+              {/* </div> */}
+                {/* <Route exact path='/login' render={(props) => <Login {...props} login={this.login} /> } /> */}
+                <Route exact path='/register' render={(props) => <Register {...props} signup={this.signup} /> } />
+              {/* <div> */}
+              <Route exact 
+              path='/'
+              // renderRecipeCollection={this.renderRecipeCollection}
+              // recipes={this.filteredRecipes()}
+              // deleteRecipe={this.deleteRecipe}
+              // recipeAction={this.showSpec}
+              />
+                {/* <Link className="form-link" to='/profile' render={(props) => <Profile {...props} recipeAction={this.addRecipe} /> }>Add a new herbal recipe!</Link> */}
+                <Route exact path='/login' render={(props) => <Login {...props} login={this.login} /> } />
+                {/* <Route exact path='/profile' render={(props) => <RecipeForm {...props} recipeAction={this.addRecipe} /> } /> */}
                 {this.state.singleRecipe 
                   ? <RecipeSpec 
+                  likes={this.state.likes}
                   recipe={this.state.singleRecipe}
                   renderRecipeCollection={this.renderRecipeCollection}
                   />
@@ -145,13 +159,11 @@ deleteRecipe = (id) => {
                   recipeAction={this.showSpec}
                   />
                 }
-                </>
-              )} />
                 {/* <Route exact path='/profile' component={Profile}/> */}
                 {/* <Route exact path='/search' component={RecipeSearch}/> */}
                 {/* <Route exact path='/register' component={Register}/> */}
             </main>
-          </Switch>
+          {/* </Switch> */}
       </Router>
     );
   }

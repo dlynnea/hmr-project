@@ -16,6 +16,7 @@ const RecipeCard = (props) => {
                 <i className="fa fa-times-circle"></i> */}
             </span>
             <img src={recipe.image} />
+            <p className="likes"><i class="fa fa-heart"></i> {recipe.likes}</p>
         </div>
     </section>
     )

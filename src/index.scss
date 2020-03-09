@@ -5,10 +5,6 @@ body {
   padding: 0;
 }
 
-// .body {
-//   margin: 15px;
-// }
-
 button {
   margin: 5px;
 }
@@ -28,7 +24,7 @@ nav ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-image: linear-gradient(to bottom right, #b1777a, #684a4b);
+  background-image: linear-gradient(to bottom right, #9c6d6f, #5c3e3f);
 }
 
 nav li {
@@ -37,9 +33,10 @@ nav li {
 
 li.logo {
   float: left;
-  color: white;
+  color: rgb(201, 200, 200);
   padding: 16px 16px;
   font-size: 2rem;
+  text-shadow: 1px 1px 1px rgb(29, 29, 29);
 }
 
 nav li a {
