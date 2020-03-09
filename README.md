@@ -20,9 +20,12 @@ The following packages will also need to be installed:
 
 ### Packages Used
 
-React
-React-DOM
-React-Router-DOM
+React,
+
+React-DOM,
+
+React-Router-DOM,
+
 Node-Sass
 
 ## Built With
